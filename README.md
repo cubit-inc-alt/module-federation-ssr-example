@@ -9,6 +9,7 @@ This example demonstrates a basic shell application loading remote components an
 - `remote2` standalone application which exposes `Image` component.
 
 ## Running Demo
+Run `pnpm recursive install` to install all app dependency
 
 Run `yarn` to install the dependencies.
 
