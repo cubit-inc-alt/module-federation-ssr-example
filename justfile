@@ -5,14 +5,14 @@ default:
 
 tag:= "$(git rev-parse --short HEAD)"
 
-namespace:= "clan-landing"
-imageRepo:= "ghcr.io/clan-co/clan-landing"
-chart-name:= "clan-landing"
+namespace:= "federation-ssr-template"
+imageRepo:= "ghcr.io/cubit-inc-alt/federation-ssr-template"
+chart-name:= "federation-ssr-template"
 helm-path:= "./helm/frontend"
 
 ## config for the deployer service account
-service-account-name:= "clan-landing-deployer"
-service-account-chart-name:= "clan-landing-deployer"
+service-account-name:= "federation-ssr-deployer"
+service-account-chart-name:= "federation-ssr-deployer"
 service-account-helm-path:= "./helm/service-account"
 
 # Builds and pushes the docker image
@@ -20,7 +20,6 @@ build-push-image imageTag=tag:
     #!/usr/bin/env sh
     docker build -t {{imageRepo}}:latest -t {{imageRepo}}:{{tag}} .
     docker image push --all-tags {{imageRepo}}
-    echo Pushed tags latest,{{tag}}
 
 # Creates the namespace
 ns-create:
@@ -46,7 +45,7 @@ helm-delete:
     helm uninstall -n {{namespace}} {{chart-name}}
 
 # creates a service account and token for a deployer
-helm-create-deployer:
+create-deployer:
     echo "Creating deployer service account to $(kubectl config current-context)"
     helm install {{service-account-chart-name}} {{service-account-helm-path}} \
         --namespace {{namespace}}  --create-namespace \
@@ -54,7 +53,7 @@ helm-create-deployer:
         --set namespace={{namespace}}
 
 # deletes the deployer service account
-helm-delete-deployer:
+delete-deployer:
     echo "Deleting deployer service account to $(kubectl config current-context)"
     helm uninstall {{service-account-chart-name}} --namespace {{namespace}}
 
