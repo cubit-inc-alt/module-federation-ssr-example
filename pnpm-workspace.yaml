@@ -1,0 +1,4 @@
+packages:
+ - 'shell/'
+ - 'remote1/'
+ - 'remote2/'

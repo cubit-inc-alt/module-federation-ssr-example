@@ -11,7 +11,7 @@ COPY package.json  pnpm-lock.yaml* ./
 RUN npm install -g pnpm
 
 # install dependencies
-RUN pnpm -r install
+RUN pnpm install
 
 
 
