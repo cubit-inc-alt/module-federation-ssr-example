@@ -1,0 +1,38 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+    name: ssr-example-ingress
+    annotations:
+        kubernetes.io/ingress.class: traefik
+        cert-manager.io/cluster-issuer: letsencrypt-production-isssuer
+        traefik.ingress.kubernetes.io/router.middlewares: {{ .Release.Namespace }}-https-redirect@kubernetescrd
+spec:
+    rules:
+        - host: ssr-example.host-1.contabo.cubit.com.np
+          http:
+              paths:
+                  - path: /
+                    pathType: Prefix
+                    backend:
+                        service:
+                            name: {{ include "frontend.fullname" . }}
+                            port:
+                                name: shell
+                  - path: /remote-1
+                    pathType: Prefix
+                    backend:
+                        service:
+                            name: {{ include "frontend.fullname" . }}
+                            port:
+                                name: remote1
+                  - path: /remote-2
+                    pathType: Prefix
+                    backend:
+                        service:
+                            name: {{ include "frontend.fullname" . }}
+                            port:
+                                name: remote2                                                       
+    tls:
+        - hosts:
+              - ssr-example.host-1.contabo.cubit.com.np
+          secretName: k3s-contabo-tls
