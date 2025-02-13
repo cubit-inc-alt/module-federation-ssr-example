@@ -10,13 +10,15 @@ COPY package.json  pnpm-lock.yaml* ./
 # install pnpm if not already installed
 RUN npm install -g pnpm
 
-# install dependencies
-RUN pnpm install
-
-
+# Copy pnpm-workspace.yaml
+COPY pnpm-workspace.yaml ./
 
 #copy source code to root directory
 COPY . .
+
+# install dependencies
+RUN pnpm install -r
+
 
 #build the app
 RUN pnpm run build

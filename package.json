@@ -6,7 +6,7 @@
   "author": "anjitpariyar@gmail.com",
   "license": "MIT",
   "scripts": {
-    "build": "pnpm --parallel --filter server-side-rendering* run build",
+    "build": "pnpm --parallel run build",
     "serve": "pnpm --parallel run serve"
   },
   "devDependencies": {
