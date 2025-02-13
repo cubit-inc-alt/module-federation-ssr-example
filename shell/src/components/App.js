@@ -17,11 +17,12 @@ export default () => (
       onClick={() => alert('shell is interactive')}
     >
       <h1>Module Federation Example: Server Side Rendering</h1>
-      <h2>This is the shell application.</h2>
+      <h2>This is the shell application. why no remote content</h2>
     </div>
 
-    {/* <React.Suspense fallback={<h1>Loading....</h1>}>
+
+    <React.Suspense fallback={<h1>Loading....</h1>}>
       <Remote1Content />
-    </React.Suspense> */}
+    </React.Suspense>
   </div>
 );

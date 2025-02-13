@@ -4,7 +4,7 @@
   "description": "React 18 architecture at scale with module federation",
   "version": "1.0.0",
   "main": "server/index.js",
-  "author": "Adam Hammad <mail@adamham.dev>",
+  "author": "Anjitpariyar anjitpariyar@gmail.com",
   "license": "MIT",
   "scripts": {
     "start:prod": "npm run build && npm run serve",
