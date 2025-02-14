@@ -3,7 +3,7 @@ const { merge } = require('webpack-merge');
 const shared = require('./webpack.shared');
 const moduleFederationPlugin = require('./module-federation');
 
-const FRONTEND_URL= 'https://ssr-example.host-1.contabo.cubit.com.np'
+const FRONTEND_URL= 'http://localhost:3000/static/main.js'
 
 module.exports = merge(shared, {
   name: 'client',
