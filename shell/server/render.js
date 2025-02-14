@@ -3,7 +3,7 @@ import { renderToPipeableStream } from 'react-dom/server';
 import { Helmet } from 'react-helmet';
 import App from '../src/components/App';
 
-const FRONTEND_URL= 'https://ssr-example.host-1.contabo.cubit.com.np'
+const FRONTEND_URL= 'http://localhost:3000'
 
 export default async (req, res, next) => {
   const helmet = Helmet.renderStatic();
@@ -13,7 +13,7 @@ export default async (req, res, next) => {
     onAllReady() {
       res.statusCode = didError ? 500 : 200;
       res.setHeader('Content-type', 'text/html');
-      res.write(`<!DOCTYPE html`);
+      res.write(`<!DOCTYPE html>`);
       res.write(`<html ${helmet.htmlAttributes.toString()}>
       <head>
         ${helmet.title.toString()}
