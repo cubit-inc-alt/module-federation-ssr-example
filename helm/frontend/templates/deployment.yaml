@@ -37,7 +37,7 @@ spec:
             - name: shell
               containerPort: {{ .Values.service.ports.shell }}
               protocol: TCP
-             - name: remote1
+            - name: remote1
               containerPort: {{ .Values.service.ports.remote1 }}
               protocol: TCP
             - name: remote2

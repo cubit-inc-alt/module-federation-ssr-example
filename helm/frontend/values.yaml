@@ -41,9 +41,9 @@ securityContext: {}
 service:
   type: ClusterIP
   ports:
-    - shell: 3000
-    - remote1: 3001
-    - remote2: 3002
+    shell: 3000
+    remote1: 3001
+    remote2: 3002
   
 ingress:
   enabled: false
