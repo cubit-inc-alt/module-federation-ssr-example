@@ -3,6 +3,8 @@ import { renderToPipeableStream } from 'react-dom/server';
 import { Helmet } from 'react-helmet';
 import App from '../src/components/App';
 
+
+
 export default async (req, res, next) => {
   const helmet = Helmet.renderStatic();
   let didError = false;
@@ -23,7 +25,7 @@ export default async (req, res, next) => {
       stream.pipe(res);
       res.write(`</div>`);
       res.write(
-        `<script async data-chunk="main" src="http://localhost:3000/static/main.js"></script>`,
+        `<script async data-chunk="main" src="./static/main.js"></script>`,
       );
       res.write(`</body></html>`);
     },
