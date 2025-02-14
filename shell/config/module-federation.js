@@ -15,6 +15,7 @@ module.exports = {
     new NodeFederationPlugin({
       name: 'shell',
       library: { type: 'commonjs-module' },
+      async:true,
       filename: 'remoteEntry.js',
       remotes: {
         remote1: 'remote1@http://localhost:3001/server/remoteEntry.js',
@@ -24,6 +25,7 @@ module.exports = {
     new StreamingTargetPlugin({
       name: 'shell',
       library: { type: 'commonjs-module' },
+      async:true,
       remotes: {
         remote1: 'remote1@http://localhost:3001/server/remoteEntry.js',
       },

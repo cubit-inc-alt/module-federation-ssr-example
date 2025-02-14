@@ -29,6 +29,7 @@ module.exports = {
       name: 'remote1',
       filename: 'remoteEntry.js',
       library: { type: 'commonjs-module' },
+      async:true,
       remotes: {
         remote2: 'remote2@http://localhost:3002/server/remoteEntry.js',
       },
@@ -50,6 +51,7 @@ module.exports = {
     new StreamingTargetPlugin({
       name: 'remote1',
       library: { type: 'commonjs-module' },
+      async:true,
       remotes: {
         remote2: 'remote2@http://localhost:3002/server/remoteEntry.js',
       },
