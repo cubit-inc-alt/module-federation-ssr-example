@@ -3,7 +3,7 @@ import { renderToPipeableStream } from 'react-dom/server';
 import { Helmet } from 'react-helmet';
 import App from '../src/components/App';
 
-const FRONTEND_URL= 'http://localhost:3000'
+const FRONTEND_URL= 'https://ssr-example.host-1.contabo.cubit.com.np'
 
 export default async (req, res, next) => {
   const helmet = Helmet.renderStatic();
