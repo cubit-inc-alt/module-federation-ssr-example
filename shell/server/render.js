@@ -4,7 +4,6 @@ import { Helmet } from 'react-helmet';
 import App from '../src/components/App';
 
 
-
 export default async (req, res, next) => {
   const helmet = Helmet.renderStatic();
   let didError = false;
@@ -13,7 +12,7 @@ export default async (req, res, next) => {
     onAllReady() {
       res.statusCode = didError ? 500 : 200;
       res.setHeader('Content-type', 'text/html');
-      res.write(`<!DOCTYPE html`);
+      res.write(`<!DOCTYPE html>`);
       res.write(`<html ${helmet.htmlAttributes.toString()}>
       <head>
         ${helmet.title.toString()}

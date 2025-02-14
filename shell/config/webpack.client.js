@@ -3,6 +3,7 @@ const { merge } = require('webpack-merge');
 const shared = require('./webpack.shared');
 const moduleFederationPlugin = require('./module-federation');
 
+
 module.exports = merge(shared, {
   name: 'client',
   target: 'web',
@@ -13,7 +14,7 @@ module.exports = merge(shared, {
     path: path.resolve(__dirname, '../dist/client'),
     filename: '[name].js',
     chunkFilename: '[name].js',
-    publicPath: 'http://localhost:3000/static/',
+    publicPath: `./static/`,
   },
   plugins: [moduleFederationPlugin.client],
 });
