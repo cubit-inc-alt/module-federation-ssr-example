@@ -3,7 +3,6 @@ const { merge } = require('webpack-merge');
 const shared = require('./webpack.shared');
 const moduleFederationPlugin = require('./module-federation');
 
-const FRONTEND_URL= 'http://localhost:3000/static/main.js'
 
 module.exports = merge(shared, {
   name: 'client',
@@ -15,7 +14,7 @@ module.exports = merge(shared, {
     path: path.resolve(__dirname, '../dist/client'),
     filename: '[name].js',
     chunkFilename: '[name].js',
-    publicPath: `${FRONTEND_URL}/static/`,
+    publicPath: `./static/`,
   },
   plugins: [moduleFederationPlugin.client],
 });
