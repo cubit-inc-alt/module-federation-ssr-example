@@ -9,6 +9,7 @@ COPY package.json  pnpm-lock.yaml* ./
 
 # install pnpm if not already installed
 RUN npm install -g pnpm
+RUN npm install -g serve
 
 # Copy pnpm-workspace.yaml
 COPY pnpm-workspace.yaml ./
