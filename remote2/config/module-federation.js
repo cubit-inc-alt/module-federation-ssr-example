@@ -9,16 +9,18 @@ module.exports = {
     remotes: {},
     exposes: {
       './Image': './src/Image',
+      './App': './src/App',
     },
     shared: {
-      ...deps,
       react: {
         singleton: true,
         requiredVersion: deps.react,
+        eager: true,
       },
       'react-dom': {
         singleton: true,
         requiredVersion: deps['react-dom'],
+        eager: true,
       },
     },
   }),
@@ -30,9 +32,9 @@ module.exports = {
       remotes: {},
       exposes: {
         './Image': './src/Image',
+        './App': './src/App',
       },
       shared: {
-        ...deps,
         react: {
           singleton: true,
           requiredVersion: deps.react,
