@@ -1,0 +1,1 @@
+// Remove this file completely since App.jsx now handles rendering directly 
